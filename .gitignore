@@ -2,7 +2,7 @@
 # Created by https://www.gitignore.io/api/code,python,django
 # Edit at https://www.gitignore.io/?templates=code,python,django
 img
-.img/*
+img/*
 ### Code ###
 .vscode
 .vscode/*
