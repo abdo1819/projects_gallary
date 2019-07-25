@@ -37,3 +37,7 @@ class Project(models.Model):
     branch = models.ManyToManyField('Branch')
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
     
+    def has_parent(self):
+        if self.parent is None:
+            return False
+        return True
