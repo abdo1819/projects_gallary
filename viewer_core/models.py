@@ -49,12 +49,12 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     img = models.ImageField(null=True, upload_to="img/project/")
     description = models.TextField()
-    markdown = models.TextField()
+    markdown = models.TextField(null=True)
 
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
 
     group = models.ManyToManyField('Group')
-    tags = models.ManyToManyField('Tag')
+    tags = models.ManyToManyField('Tag', null=True)
     students = models.ManyToManyField('Student')
     instractors = models.ManyToManyField('Instractor')
 
