@@ -54,7 +54,7 @@ class Project(models.Model):
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
 
     group = models.ManyToManyField('Group')
-    tags = models.ManyToManyField('Tag', null=True)
+    tags = models.ManyToManyField('Tag', blank=True)
     students = models.ManyToManyField('Student')
     instractors = models.ManyToManyField('Instractor')
 
