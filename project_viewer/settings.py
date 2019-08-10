@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    'viewer_core.apps.ViewerCoreConfig'
+    'viewer_core.apps.ViewerCoreConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# restful api
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}

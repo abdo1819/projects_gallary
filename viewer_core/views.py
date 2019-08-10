@@ -2,7 +2,55 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
-from .models import Project,Branch,Group
+
+from rest_framework import viewsets
+
+from .models import *
+from .serializers import *
+
+
+class BranchViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Branchs to be viewed or edited.
+    """
+    queryset = Branch.objects.all()
+    serializer_class = BranchSerializer
+
+class InstractorViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Instractors to be viewed or edited.
+    """
+    queryset = Instractor.objects.all()
+    serializer_class = InstractorSerializer
+
+class StudentViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Students to be viewed or edited.
+    """
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+class TagViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Tags to be viewed or edited.
+    """
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+
+class GroupViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Groups to be viewed or edited.
+    """
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
+
+class ProjectViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Projects to be viewed or edited.
+    """
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
 # Create your views here.
 def hello(request):
     return HttpResponse("You're looking at hello .")
@@ -17,5 +65,3 @@ def projects(request, branch_name, group_name):
     }
     template = 'viewer_core/projects.html'
     return render(request, template, context)
-                                
-
