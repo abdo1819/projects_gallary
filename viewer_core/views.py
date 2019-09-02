@@ -51,6 +51,17 @@ class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
+class MainProjectViewSet(viewsets.ModelViewSet):
+    queryset = Project.objects.filter(parent__isnull=True)
+    serializer_class = listProjectSerializer
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return listProjectSerializer
+        if self.action == 'retrieve':
+            return ProjectSerializer
+        return ProjectSerializer # I dont' know what you want for create/destroy/update.    
+
+    
 # Create your views here.
 def hello(request):
     return HttpResponse("You're looking at hello .")

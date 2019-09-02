@@ -30,6 +30,13 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Project
-        fields = ['title', 'img', 'description', 'markdown', 
+        fields = ['id','title', 'img', 'description', 'markdown', 
                   'parent', 'group', 'tags', 
                   'students', 'instractors']
+
+
+class listProjectSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Project
+        fields = ['id','title', 'img', 'description', 
+                  'group', 'tags',]

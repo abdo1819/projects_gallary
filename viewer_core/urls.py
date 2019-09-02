@@ -10,6 +10,8 @@ router.register(r'students', views.StudentViewSet)
 router.register(r'tags', views.TagViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'projects', views.ProjectViewSet)
+router.register(r'main_projects', views.MainProjectViewSet,basename="main_pro")
+
 
 urlpatterns = [
     # path('<string:branch_name>/<int:groub_number>/', views.index, name='index'),
