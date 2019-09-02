@@ -10,7 +10,7 @@ website to display projects made by student at the collage
 
 ### Create a virtual environment
     python3 -m venv gallary
-    source env/bin/activate 
+    source gallary/bin/activate 
 *or use conda*
 
 
